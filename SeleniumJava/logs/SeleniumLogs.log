@@ -1,0 +1,4 @@
+[INFO ] 2021-12-27 20:15:56.734 [main] Naukri_JobSearch_Test - This is informational
+[ERROR] 2021-12-27 20:15:56.734 [main] Naukri_JobSearch_Test - This is error message
+[WARN ] 2021-12-27 20:15:56.734 [main] Naukri_JobSearch_Test - This is warning message
+[FATAL] 2021-12-27 20:15:56.736 [main] Naukri_JobSearch_Test - This is fatal message

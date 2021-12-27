@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import pageRepository.Naukri_HomePage;
 
-public class Naukri_JobSearch_Test extends BaseClass {
+public class Naukri_JobSearch_Check extends BaseClass {
 	 
 	
 	
@@ -18,7 +18,7 @@ public class Naukri_JobSearch_Test extends BaseClass {
 		extentReport_Initiate();
 	}
 	
-	Logger logger = LogManager.getLogger(Naukri_JobSearch_Test.class);
+	Logger logger = LogManager.getLogger(Naukri_JobSearch_Check.class);
 	
 	@Test
 	public void Seach_Job() throws InterruptedException   {

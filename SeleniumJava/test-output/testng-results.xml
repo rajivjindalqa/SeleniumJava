@@ -1,44 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-12-27T20:00:14 IST" name="Suite" finished-at="2021-12-27T20:00:14 IST" duration-ms="57">
+  <suite started-at="2021-12-27T20:15:26 IST" name="Default suite" finished-at="2021-12-27T20:15:26 IST" duration-ms="51">
     <groups>
       <group name="functional">
-        <method signature="Scenario1.test3()[pri:0, instance:testCases.Scenario1@6fd83fc1]" name="test3" class="testCases.Scenario1"/>
+        <method signature="Scenario1.test3()[pri:0, instance:testCases.Scenario1@21e360a]" name="test3" class="testCases.Scenario1"/>
       </group> <!-- functional -->
       <group name="regression">
-        <method signature="Scenario1.test2()[pri:0, instance:testCases.Scenario1@6fd83fc1]" name="test2" class="testCases.Scenario1"/>
+        <method signature="Scenario1.test2()[pri:0, instance:testCases.Scenario1@21e360a]" name="test2" class="testCases.Scenario1"/>
       </group> <!-- regression -->
       <group name="smoke">
-        <method signature="Scenario1.test2()[pri:0, instance:testCases.Scenario1@6fd83fc1]" name="test2" class="testCases.Scenario1"/>
+        <method signature="Scenario1.test2()[pri:0, instance:testCases.Scenario1@21e360a]" name="test2" class="testCases.Scenario1"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2021-12-27T20:00:14 IST" name="Test" finished-at="2021-12-27T20:00:14 IST" duration-ms="57">
-      <class name="testCases.Scenario2">
-        <test-method signature="test4()[pri:0, instance:testCases.Scenario2@729d991e]" started-at="2021-12-27T20:00:14 IST" name="test4" finished-at="2021-12-27T20:00:14 IST" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test4 -->
-        <test-method signature="test5()[pri:0, instance:testCases.Scenario2@729d991e]" started-at="2021-12-27T20:00:14 IST" name="test5" finished-at="2021-12-27T20:00:14 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test5 -->
-      </class> <!-- testCases.Scenario2 -->
+    <test started-at="2021-12-27T20:15:26 IST" name="Default test" finished-at="2021-12-27T20:15:26 IST" duration-ms="51">
       <class name="testCases.Scenario1">
-        <test-method signature="test3()[pri:0, instance:testCases.Scenario1@6fd83fc1]" started-at="2021-12-27T20:00:14 IST" name="test3" finished-at="2021-12-27T20:00:14 IST" duration-ms="8" status="PASS">
+        <test-method signature="test3()[pri:0, instance:testCases.Scenario1@21e360a]" started-at="2021-12-27T20:15:26 IST" name="test3" finished-at="2021-12-27T20:15:26 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test3 -->
-        <test-method signature="test2()[pri:0, instance:testCases.Scenario1@6fd83fc1]" started-at="2021-12-27T20:00:14 IST" name="test2" depends-on-groups="functional" finished-at="2021-12-27T20:00:14 IST" duration-ms="1" status="PASS">
+        <test-method signature="test2()[pri:0, instance:testCases.Scenario1@21e360a]" started-at="2021-12-27T20:15:26 IST" name="test2" depends-on-groups="functional" finished-at="2021-12-27T20:15:26 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-        <test-method signature="test1()[pri:0, instance:testCases.Scenario1@6fd83fc1]" started-at="2021-12-27T20:00:14 IST" name="test1" finished-at="2021-12-27T20:00:14 IST" depends-on-methods="testCases.Scenario1.test2, testCases.Scenario1.test3" duration-ms="1" status="PASS">
+        <test-method signature="test1()[pri:0, instance:testCases.Scenario1@21e360a]" started-at="2021-12-27T20:15:26 IST" name="test1" finished-at="2021-12-27T20:15:26 IST" depends-on-methods="testCases.Scenario1.test2, testCases.Scenario1.test3" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
       </class> <!-- testCases.Scenario1 -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

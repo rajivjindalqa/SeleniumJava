@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import basePack.BaseClass;
 
-public class Scenario1 extends BaseClass {
+public class Scenario1_Test extends BaseClass {
 
 	
 	@Test (dependsOnMethods = {"test2","test3"})
@@ -24,7 +24,7 @@ public class Scenario1 extends BaseClass {
 	@Test (groups = {"functional"})
 	public void test3() {
 
-		System.out.println("Test 3");
+		System.out.println("Test 3 passed");
 
 	}
 	
