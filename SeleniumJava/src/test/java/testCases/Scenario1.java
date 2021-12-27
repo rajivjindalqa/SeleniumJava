@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import basePack.BaseClass;
 
-public class Scenario1_Test extends BaseClass {
+public class Scenario1 extends BaseClass {
 
 	
 	@Test (dependsOnMethods = {"test2","test3"})
