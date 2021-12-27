@@ -24,7 +24,7 @@ public class Scenario1_Test extends BaseClass {
 	@Test (groups = {"functional"})
 	public void test3() {
 
-		System.out.println("Test 3 passed");
+		System.out.println("Test 3");
 
 	}
 	
