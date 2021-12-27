@@ -8,4 +8,4 @@
 			<class name="testCases.Scenario2" />
 		</classes>
 	</test> <!-- Test -->
-</suite> <!-- Suite -->
+</suite> 
