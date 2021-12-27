@@ -1,0 +1,10 @@
+for the properties file you need to create a .property file. It is used to store the configurations 
+
+
+Below is the code required to setup and call the file:
+
+			Properties prop = new Properties();
+			InputStream io = new FileInputStream(SystemPath+ "/src/test/java/config/config.properties");
+			prop.load(io);
+			String value = prop.getProperty("name of property for which you want to fetch the value");
+		

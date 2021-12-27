@@ -1,0 +1,54 @@
+
+public class DataProviderDemo {
+
+	
+	//STEP 1
+	public Object[][] testData(String sheetpath, String sheetTab ) throws IOException {
+
+		ExcelUtility exc = new ExcelUtility(sheetpath, sheetTab);
+		int rowCount = exc.Excel_getRowCount();
+		int colCount = exc.Excel_getColumnCount();
+
+		Object data[][] = new Object[rowCount-1][colCount];
+
+		for (int i=1;i<rowCount;i++) {
+			for(int j=0;j<colCount;j++) {
+
+				String cellData = exc.Excel_getCellStringValue(i, j);
+				//System.out.print(cellData+"  |  ");
+				data[i-1][j]=cellData;
+
+
+			}
+			//System.out.println();
+
+		}
+		return data;
+	}
+
+
+
+	//STEP 2
+	@DataProvider(name="TestData")
+
+	public Object[][] getData() throws IOException {
+		String systemPath = System.getProperty("user.dir");
+		String sheetPath= systemPath+"\\excel\\data.xlsx";
+
+		Object data[][] = testData(sheetPath, "Sheet1");
+		return data;
+	}
+
+
+	//STEP 3
+	@Test(dataProvider = "TestData")
+	public void test(String Name, String Password) {
+		
+		System.out.println(Name+"-----"+Password);
+	}
+
+
+
+
+
+}

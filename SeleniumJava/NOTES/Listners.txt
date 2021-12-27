@@ -1,0 +1,34 @@
+Listeners basically listen to your test cases and give you the flexibility to perform certain action during execution. 
+YOu can define what to do before/after execution, before / after test case run, on skip, pass, fail etc.
+Creating listeners has below steps required:
+
+1. create a java class and implement the listener interface to it (ITestListener is one of the interface. You can check for more such interfaces. Then add the implemented methods as following:
+
+public class sample implements ITestListener {
+
+	public void onTestStart(ITestResult result) {
+		System.out.println("---------------TEST STARTED"+result.getName());
+
+	}
+
+	public void onTestSuccess(ITestResult result) {
+		System.out.println("---------------TEST PASSED"+result.getName());
+	}
+
+	public void onTestFailure(ITestResult result) {
+		// TODO Auto-generated method stub
+
+		System.out.println("---------------TEST FAILED"+result.getName());
+
+	}
+	
+	
+2. Then you can refer this listener call in test case class in two ways:
+	a) Adding following above class: @Listeners(listners.TestNGListners.class)
+	b) Adding the listeners at suite level in testng.xml file as following (it will work for all classes or packages you will be defining in this file.
+		 	<suite name="demo">
+
+				<listeners>
+					<listener class-name="listners.TestNGListners" />
+				</listeners>
+			

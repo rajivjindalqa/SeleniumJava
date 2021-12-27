@@ -1,0 +1,74 @@
+STEPS:
+
+1. Add below dependency:
+
+	<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+
+2. Create an excel with some data (may be one numeric and one string column)
+
+//Below code explains how to add a workbook and worksheet and then fetch the data (get row number, get cell data )
+
+
+//Create a constructor and add call these two into the constructor.
+
+//Create below functions 
+
+//To call these functions in any class, crete the object of this class. The constructor will ask for the file path and sheet name.  
+
+public class ExcelUtility {
+
+	static XSSFWorkbook workbook;
+	static XSSFSheet sheet;
+
+
+	public ExcelUtility(String sheetpath, String sheetTab) {
+		try {
+			workbook = new XSSFWorkbook(sheetpath);
+			sheet = workbook.getSheet(sheetTab);
+		}catch(Exception e) {
+
+		}
+
+	}
+	public void Excel_getRowCount() throws IOException {
+
+		int rowCount = sheet.getPhysicalNumberOfRows();
+		System.out.println("Total number of rows: "+rowCount);
+	}
+
+	public void Excel_getColumnCount() throws IOException {
+
+		int columnCount = sheet.getRow(0).getPhysicalNumberOfCells();
+		System.out.println("Total number of Columns: "+columnCount);
+	}
+	
+	public void Excel_getCellStringValue(int rowNum, int ColNum) throws IOException {
+
+
+		String cellValue = sheet.getRow(rowNum).getCell(ColNum).getStringCellValue();
+		System.out.println("Cell Value is: "+cellValue);
+	}
+
+
+	public void Excel_getCellNumericValue(int rowNum, int ColNum) throws IOException {
+
+		double numericCellValue = sheet.getRow(rowNum).getCell(ColNum).getNumericCellValue();
+		System.out.println("Cell Value is :"+numericCellValue);
+
+	}
+	
+	-----------
+	
+	This is how you can call these functions  
+	
+	ExcelUtility Eu = new ExcelUtility(sheetPath, "Sheet1");
+		Eu.Excel_getCellNumericValue(1, 1);
+		Eu.Excel_getCellStringValue(1, 0);
+		Eu.Excel_getRowCount();
+	
+	
+	

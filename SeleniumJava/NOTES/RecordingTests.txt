@@ -1,0 +1,3 @@
+Add the Chrome extension : katalon Recorder . Its basically a substitute of Selenium IDE
+
+Record and play the tests. YOucan export as well in whatever format you want (Say Java with TestNG, Java with JUnit etc.) 

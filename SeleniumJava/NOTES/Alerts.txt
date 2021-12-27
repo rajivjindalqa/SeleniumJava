@@ -1,0 +1,9 @@
+//from JavaScript
+driver.findElement(By.xpath("//button[@onclick='jsAlert()']")).click();
+
+//Normal
+Alert alert = driver.switchTo().alert();
+String text = alert.getText();
+alert.accept();
+alert.dismiss();
+alert.sendKeys("Automation Step by Step");

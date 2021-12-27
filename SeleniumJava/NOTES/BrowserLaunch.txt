@@ -1,0 +1,40 @@
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("start-maximized");
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			driver = new ChromeDriver(options);
+			
+			
+			
+//WHat is Page load strategy 
+Page Loading Strategies
+ NORMAL
+ EAGER
+ NONE
+
+Normal
+waits for the entire page to be loaded
+Se webdriver waits until the load event fire is returned
+By default normal is set to browser if none is provided
+
+Eager
+waits until the initial HTML document has been completely loaded and parsed
+discards loading of stylesheets, images and subframes
+Se webdriver waits until the DOMContentLoaded event fire is returned
+
+ ChromeOptions chromeOptions = new ChromeOptions();
+ chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
+
+None
+When set to none Selenium WebDriver only waits until the initial page is downloaded		
+
+
+//For headless chrome browse the version should be greater than 59 
+
+Below is what you need to add:
+			options.addArguments("headless");
+			options.addArguments("window-size=1920,1080");   //this can be checked from display settings of your machine 
+
+
+
+	

@@ -1,0 +1,80 @@
+Link to website having log4k properties file content:
+
+https://springframework.guru/log4j-2-configuration-using-properties-file/
+Also below the log4j2.properties file for reference:
+-----> this file has to be placed in source/main/resources
+
+name=PropertiesConfig
+property.filename = logs
+appenders = console, file
+
+appender.console.type = Console
+appender.console.name = STDOUT
+appender.console.layout.type = PatternLayout
+appender.console.layout.pattern = [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+
+appender.file.type = File
+appender.file.name = LOGFILE
+appender.file.fileName=${filename}/SeleniumLogs.log
+appender.file.layout.type=PatternLayout
+appender.file.layout.pattern=[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+appender.file.append=false
+
+loggers=file
+logger.file.name=basePack
+logger.file.level = debug
+logger.file.appenderRefs = file
+logger.file.appenderRef.file.ref = LOGFILE
+
+rootLogger.level = debug
+rootLogger.appenderRefs = stdout
+rootLogger.appenderRef.stdout.ref = STDOUT
+
+---------------------
+
+
+Log4j is a java based logging framework. Is simple, flexible, reliable and fast. Is configured through a configuration file
+Log4j.xml OR log4j.properties etc...
+
+Below dependencies to be add:
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.15.0</version>
+		</dependency>
+		
+		
+Below code required for java class file:
+
+//create the object of Logger file at class level as following. Note that while hovering the Logger only import it from apache log4j class:
+Logger logger = LogManager.getLogger(BrowserLaunch.class);
+
+//Then inside the method/function add below lines of codes as required:
+		logger.info("This is informational");
+		logger.trace("This is trace message");
+		logger.error("This is error message");
+		logger.warn("This is warning message");
+		logger.fatal("This is fatal message");
+		
+		
+## Note that you can make the file appending on/off by making the appender.file.append=false/true
+## Changing the value to "off" for below two will stop the logging. Changing the below to "trace" for below two will capture the trace messages.
+
+	logger.file.level = debug
+	rootLogger.level = debug
+		
+
+--------------------------------------
+
+Above information is for .properties file.
+
+logging can be done using .xml file as well. In that case you just need to add a log4j2.xml file and rest of the things will be same.
+
+---------		
+		
+		

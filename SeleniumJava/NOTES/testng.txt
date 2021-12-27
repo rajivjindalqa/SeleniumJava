@@ -1,0 +1,14 @@
+
+-- YOu can right click o nany java class file and go to TestNG-> Convert to TestNG. It will create the testng.xml file for you.
+--Although it is a simple and easy to create: start with suite and test with giving a name which is mandatory. THen add classes and further the methods in he classes you want to add.
+
+----- Sample file:
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="demo">
+	<test name="test1">
+		<classes>
+			<class name="basePack.Scenario1"/>
+			<class name="basePack.Scenario2" />
+		</classes>
+	</test>
+</suite>

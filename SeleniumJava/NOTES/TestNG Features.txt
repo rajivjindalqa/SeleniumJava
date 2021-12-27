@@ -1,0 +1,183 @@
+PRIORITY
+
+@Test(priority=1)
+@Test(priority=-5)
+
+What if two test methods have same priority or no priority:
+- Cases Will run as per alphabetical order.
+
+What if a class has both prioritized and non-prioritized methods
+- First non-prioritized methods will be executed in alphabetical order and then the prioritized methods.
+---------
+
+PARAMETERS
+
+@Parameters annotation can be placed on any method that already has following annotations
+
+@Test
+@Before/After
+@Factory
+
+@Parameters annotation can also be placed class constructor
+In testng.xml you can put parameters under suite or test tag
+
+If two parameters have the same name, it's the one defined in test that has precedence. 
+This is convenient if you need to specify a parameter applicable to all your tests and override its value only for certain tests.
+
+Add below annotation 
+
+@Parameters("parameter_Name_Here") // say userName 
+
+Then you can refer the string userName in the code inside @Test or any other TestNG annotation and define the value of that 
+parameter inside testng.xml as following:
+
+<suite name="Suite">
+	<test name="Test">
+		<parameter name="userName" value="Rajiv8123" />
+		<classes>
+			<class name="basePack.Naukri_JobSearch_Test" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+NOTE that if you are not defining the value in testng.xml then it will throw TestNG exception. 
+
+You can also make the parameter as optional by adding a default value for it as following:
+
+	@Test ()
+	@Parameters ("UserName")
+	public void test4(@Optional("Please add a name") String name) {
+
+		System.out.println(name);
+		
+		System.out.println("Test 3");
+	}
+	
+	
+	So in this case if you hav enot defined the value in testng.xml, it will print "Please add a name"
+
+-----------
+
+GROUPS
+
+create Groups
+	@Test(groups={"smoke","sanity"}}
+
+How to run tests from groups
+	
+	<test name="Test">
+		<groups>
+			<run>
+				<include name="smoke" />
+				<include name="sanity" />
+			</run>
+		</groups>
+	
+		<packages>
+			<package name="testCases" />
+		</packages>
+	</test>
+
+How to create MetaGroups
+
+		<test name="Test">
+		<groups>
+			<define name="RegressionPack">
+				<include name="smoke" />
+				<include name="regression" />
+
+			</define>
+
+			<run>
+				<include name="RegressionPack" />
+			</run>
+
+		</groups>
+
+
+How to use regular expression
+	@Test(groups={"window.smoke","window.sanity"}}
+	@Test(groups={"linux.functional","linux.sanity"}}
+
+	Then put it as following in testng.xml file 
+	
+				<run>
+				<include name="window.*" />   
+			</run>
+	
+How to define groups at class level
+
+ 	On the top of class add like  @Test(groups={"smoke"}}   // means all the test case of this class belongs to this group.
+ --------------------------------------------------
+ 
+DEPENDENCIES 
+
+Dependencies can be added on test case level as well as group level as following:
+	@Test (dependsOnMethods = {"test2","test3"})
+	@Test (dependsOnGroups = {"regression"})
+	@Test (dependsOnGroups = {"Smoke.*"})  //here this test will run after all the groups starting with text Smoke.
+	
+	If we have given the method or group dependency and also the priority for a test case, then the preference will
+	be given to dependency.
+	
+---------------------------------------------------- 
+IGNORE
+
+@Ignore annotation 
+
+can be used at 1. Test Level (add above or below the @Test)
+			   2. Class Level (add on the top of class)
+			   3. Package Level(create package-info.java file and add the @Ignore annotation there)
+			   	  To create this file you can right click on the package and select Create New package ->
+			   	  Then keep the package name same and check the check-box for package-info.java file and 
+			   	  click finish. It will create the package-info.java file in the same package.   	 
+
+-----------------------------------------------------
+RE-RUNNING FAILED CASES
+   (Check the Test NG Web site)
+
+very time tests fail in a suite, TestNG creates a file called testng-failed.xml in the output directory. 
+This XML file contains the necessary information to rerun only these methods that failed, allowing you to quickly reproduce the failures without having to run the entirety of your tests.  Therefore, a typical session would look like this:
+
+java -classpath testng.jar;%CLASSPATH% org.testng.TestNG -d test-outputs testng.xml
+java -classpath testng.jar;%CLASSPATH% org.testng.TestNG -d test-outputs test-outputs\testng-failed.xml
+
+Also you can add a retry Analyzer at test case level (say you want to try for a particular number of times again if it failed.
+
+For that you need to create a class implementing the IRetryAnalyzer  framework, and then call this class as an attribute in @Test as following:
+
+	CLASS:
+	import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+ 
+public class MyRetry implements IRetryAnalyzer {
+ 
+  private int retryCount = 0;
+  private static final int maxRetryCount = 3;
+ 
+  @Override
+  public boolean retry(ITestResult result) {
+    if (retryCount < maxRetryCount) {
+      retryCount++;
+      return true;
+    }
+    return false;
+  }
+}
+	
+	Calling the above class :
+	import org.testng.Assert;
+import org.testng.annotations.Test;
+ 
+public class TestclassSample {
+ 
+  @Test(retryAnalyzer = MyRetry.class)
+  public void test2() {
+    Assert.fail();
+  }
+}
+	
+----------------------------------------------------------------------
+
+

@@ -1,0 +1,9 @@
+Web site link: https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
+Chrome specific: https://sites.google.com/a/chromium.org/chromedriver/capabilities
+
+
+//Below is oe example for Chrome Browser:
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("start-maximized");  //it will open the browser in maximized mode
+			driver = new ChromeDriver(options);

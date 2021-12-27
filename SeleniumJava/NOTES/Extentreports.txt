@@ -1,0 +1,36 @@
+#Web site 
+https://www.extentreports.com/
+
+#add below dependency:
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+
+
+
+//This is the common code which is required
+		ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
+		extent = new ExtentReports();
+		extent.attachReporter(spark);
+		
+		spark.config().setTheme(Theme.DARK);
+		spark.config().setDocumentTitle("MyReport");
+		spark.config().setReportName("First Report");
+		
+		
+//Code for adding a test case 
+		ExtentTest test = extent.createTest("Login Test").assignAuthor("Rajiv JIndal").assignCategory("Smoke Test").assignCategory("Regression").assignDevice("Chrome");
+		test.pass("Login credentials entered");
+		test.pass("snapshot", MediaEntityBuilder.createScreenCaptureFromBase64String(screenshot()).build());	//taking screenshot	
+
+		//Also below function to be created and used inside the above screenshot code line
+			public String screenshot() {
+		
+			return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			}
+		
+//mandatory code line at the end:
+
+extent.flush();
