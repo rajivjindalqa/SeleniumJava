@@ -1,7 +1,7 @@
 
 Functions in selenium to make webdriver wait for a specific time or for some condition to be true
 
-Why waits are required in Automation Testing
+Why waits are required in Automation Testing.
 
 Sometimes the automation script is faster than the browser loading time or objects render time on browser - no such element
 Different elements may load at different time interval

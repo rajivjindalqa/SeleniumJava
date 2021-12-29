@@ -1,0 +1,6 @@
+How to create a war (Web Application Archive File) file from the project 
+For a maven project 
+Maven project should be created by using org.apache.maven.archetypes as web type rather than creating a simple maven project.
+Run with Goal: clean install
+
+It will create and save the war in target folder under project. 
