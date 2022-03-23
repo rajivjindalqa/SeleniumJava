@@ -1,0 +1,41 @@
+What is AutoIT
+
+Software designed for automating windows GUI
+
+Uses a combination of simulated keystrokes, mouse movement and window/control manipulation to automate tasks not possible using only Selenium
+
+An AutoIt automation script can be converted into a compressed, stand-alone executable
+
+AutoIT is Free
+Works on Windows
+
+
+Why to use AutoIT
+
+Selenium cannot handle any non-browser / non-HTML elements
+
+To handle such elements like:
+Windows authentication box
+File upload dialog box
+Any other non-browser interaction
+
+
+
+STEPS:
+1. Download and Install the AutoIT software (.exe file) from the internet. 
+2. Download and install AutoIT Script Editor
+3. Open Au3Info.exe (A finder Tool / Spy Window) and Locate objects on the Window GUI.
+4. Create AutoIT script and test (it wil lbe a file with ext as .au3).
+	Some commands insde are: 
+	ControlFocus("Open", "Edit1")   // here Open is the title of window
+	Sleep(3000)
+	ControlSetText ("Open", "Edit1","D:\File1.txt")
+	Sleep(3000)	
+	ControlCLick("Open","","Button1")
+
+5. right click on above file and click on Compile file. it will create an exe file.
+6. Call this exe file in your selenium script as following:
+Runtime.getRuntime().exec("<location of autoit exe file>")
+
+
+
