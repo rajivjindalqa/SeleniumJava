@@ -3,21 +3,22 @@ Functions in selenium to make webdriver wait for a specific time or for some con
 
 Why waits are required in Automation Testing.
 
-Sometimes the automation script is faster than the browser loading time or objects render time on browser - no such element
+Sometimes the automation script is faster than the browser loading time or objects render time 
+on browser - no such element
 Different elements may load at different time interval
-So Webdriver script and browser events may not be synchronous at all times
+So WebDriver script and browser events may not be synchronous at all times
 
-Types of waits
-implicit
-explicit
-fluent
+Types of waits :
+-implicit
+-explicit
+-fluent
 
 Implicit Wait
 Useful when there is some gap in loading time of the web page and web elements
-An implicit wait makes WebDriver to poll the DOM for a certain amount of time when trying to find an element or elements if they are not immediately available
+An implicit wait makes WebDriver to poll the DOM for a certain amount of time when trying to find an element 
+	or elements if they are not immediately available
 
 //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
 default setting is 0 (disabled)
 Once set, the implicit wait is set for the entire life of the session
 Polling frequency  - 500 ms

@@ -1,0 +1,14 @@
+Headless browsers can be used for:
+Running your test on a headless systems like Unix or without UI.
+When you want simulate multiple browser behavior on a single machine.
+To use minimal resources (because there is no UI)
+Need to run your test just for data creation.
+
+
+Should not be used:
+If you need to visually observe your test on the browser.
+It does not give you the exact feedback of what your customers will actually experience on your website (Page loading speed)
+Headless browsers sometimes may throw errors that is not observed on real browser.
+
+
+HTMLUnit driver can be executed only on WebDriver and cant be run on the Selenium RC

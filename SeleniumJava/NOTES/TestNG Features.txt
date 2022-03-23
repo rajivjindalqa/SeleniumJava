@@ -137,6 +137,7 @@ can be used at 1. Test Level (add above or below the @Test)
 RE-RUNNING FAILED CASES
    (Check the Test NG Web site)
 
+Cases can be fail due to many reasons : Server down / Network slow / Application is slow
 very time tests fail in a suite, TestNG creates a file called testng-failed.xml in the output directory. 
 This XML file contains the necessary information to rerun only these methods that failed, allowing you to quickly reproduce the failures without having to run the entirety of your tests.  Therefore, a typical session would look like this:
 
@@ -145,7 +146,7 @@ java -classpath testng.jar;%CLASSPATH% org.testng.TestNG -d test-outputs test-ou
 
 Also you can add a retry Analyzer at test case level (say you want to try for a particular number of times again if it failed.
 
-For that you need to create a class implementing the IRetryAnalyzer  framework, and then call this class as an attribute in @Test as following:
+For that you need to create a class implementing the IRetryAnalyzer  interface, and then call this class as an attribute in @Test as following:
 
 	CLASS:
 	import org.testng.IRetryAnalyzer;
@@ -159,7 +160,7 @@ public class MyRetry implements IRetryAnalyzer {
   @Override
   public boolean retry(ITestResult result) {
     if (retryCount < maxRetryCount) {
-      retryCount++;
+      retryCount++; 
       return true;
     }
     return false;
