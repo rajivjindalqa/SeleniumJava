@@ -21,7 +21,7 @@ public class sample implements ITestListener {
 		System.out.println("---------------TEST FAILED"+result.getName());
 
 	}
-	
+	------
 	
 2. Then you can refer this listener call in test case class in two ways:
 	a) Adding following above class: @Listeners(listners.TestNGListners.class)
