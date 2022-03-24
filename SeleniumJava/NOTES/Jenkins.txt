@@ -21,7 +21,7 @@ Add details : Go to Build environment and add the build steps :
 
 cd c:
 cd C:\Users\DELL\git\SeleniumJava\SeleniumJava
-mvn clean test -Dtestng=testng.xml
+mvn clean test -DTestFile=testng.xml
 echo success!!
 
 Step 3
@@ -36,7 +36,7 @@ To create the results/reports in Jenkins:
 
 Add plugins : TEstNG, TEst Result analyser
 Inside Post build actions add: Publish TestNG Results : **\testng-results.xml
-(You an give as above or can give the complete path. If you are giving as above then you need to add the project path
+(You can give as above or can give the complete path. If you are giving as above then you need to add the project path
 under General -> Advanced -> Use custom workspace)
 
 
