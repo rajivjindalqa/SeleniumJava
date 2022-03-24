@@ -1,15 +1,14 @@
 package testCases;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
-public class Scenario2 {
+public class Scenario2Test {
 
-	@Test (retryAnalyzer = listners.FailedCasesRetryAnalyser.class)
+	@Test ()
 	public void test4() {
 	
 		System.out.println("Test 5");
-			//Assert.assertTrue(false);
+
 		}
 
 	@Test
