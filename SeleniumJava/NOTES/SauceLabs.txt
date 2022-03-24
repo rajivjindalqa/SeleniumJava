@@ -1,4 +1,7 @@
-Every framework, browser, OS, mobile device, API.
+Every framework, browser, OS, mobile device (ANdroid, iOS), API.
+
+IT facilitates the selection of OS, Device , Browser and generate the code accordingly which can be used in test script/code.
+
 
 Sample code:
 
